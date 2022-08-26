@@ -311,12 +311,16 @@ main{
     right: 0;
     background-color: #151515;
 }
-@media screen and (max-width: 1000px){
-    .overlay{
-        display: flex;
+@media screen and (max-width: 800px){
+    html,body{
+        font-size: 60%;
     }
-    .body{
-        overflow: hidden;
+    .container{
+        grid-template-columns: 1fr;
+    }
+    .sphere{
+        width: 100%;
+        height: auto;
     }
 }
 

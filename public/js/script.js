@@ -27,13 +27,24 @@ const myTags = [
 
 var tagCloud = TagCloud('.sphere', myTags,{
 
-  radius: 250,
-  maxSpeed: 'fast',
-  initSpeed: 'fast',
-  direction: 135,
-  keep: true
-  
-});
+    radius: window.innerWidth/4,
+    maxSpeed: 'fast',
+    initSpeed: 'fast',
+    direction: 135,
+    keep: true
+    
+  });;
+// window.addEventListener('resize',(e)=>{
+//     if(e.width<=700){
+//         tagCloud.update({
+//             radius:100
+//         });
+//     }else{
+//         tagCloud.update({
+//             radius:250
+//         });
+//     }
+// })
 
 
 var colors = ['#34A853', '#FBBC05', '#4285F4', '#7FBC00', 'FFBA01', '01A6F0'];
