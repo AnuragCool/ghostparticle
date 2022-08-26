@@ -325,6 +325,9 @@ main{
     .nav-bar{
         width: 250px;
     }
+    main{
+        padding-bottom: 3rem;
+    }
 }
 
 
