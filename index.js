@@ -11,6 +11,11 @@ app.get("/",(req,res) => {
     res.render('index');
 })
 
+app.get("/play",(req,res) => {
+    res.render('playground');
+})
+
+
 app.listen(process.env.PORT||1234,()=>{
     console.log("Listening on port 1234");
 })
