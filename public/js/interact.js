@@ -1,4 +1,4 @@
-let canvas, ctx, w, h, particles = [];
+let canvas, ctx, w, h, particles = [],particles2 = [];
 let mouse = {
 	x: undefined,
 	y: undefined
@@ -23,10 +23,19 @@ function drawScene() {
 		particle.update();
 		particle.draw();
 	})
+    particles2.map((particle) => {
+		particle.update();
+		particle.draw();
+	})
 }
 
 function arrayCleanup(){
     particles.map((particle) => {
+        if(particle.r === 0)
+            return ;
+        else return particle;
+    })
+    particles2.map((particle) => {
         if(particle.r === 0)
             return ;
         else return particle;
@@ -41,6 +50,32 @@ class Particle{
         this.hue = hue % 360;
         this.alpha=1
         this.hue
+        this.time=0.1;
+		this.color=color
+    }
+
+    draw(){
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+        // ctx.strokeStyle = `hsla(${this.hue}, 100%, 50%, ${this.alpha})`;
+		ctx.strokeStyle = this.color;
+        ctx.stroke();
+    }
+    update(){
+        this.time+=.01;
+        if(this.r>=.1+this.time)
+        this.r-=.1+this.time;
+		else
+		this.r=0;
+    }
+}
+class Particle2{
+    constructor(x,y,r,color){
+        this.x=x;
+        this.y=y;
+        this.r=r;
+        this.hue = hue % 360;
+        this.alpha=1
 		this.color=color
     }
 
@@ -65,7 +100,7 @@ function animate(){
 	// var color = Math.floor(Math.random()*2)===0?"#7267CB":"#00ddff";
 	var x = Math.floor(Math.random() * w)
 	var y = Math.floor(Math.random() * h)
-	particles.push(new Particle(x,y,radius,"#eee"));
+	particles2.push(new Particle2(x,y,radius,"#eee"));
 	toogle=false;
 	}else toogle = true;
 	
