@@ -30,15 +30,11 @@ function drawScene() {
 }
 
 function arrayCleanup(){
-    particles.map((particle) => {
-        if(particle.r === 0)
-            return ;
-        else return particle;
+    particles = particles.filter((particle)=>{
+        return particle.r>0
     })
-    particles2.map((particle) => {
-        if(particle.r === 0)
-            return ;
-        else return particle;
+    particles2 = particles2.filter((particle)=>{
+        return particle.r>0
     })
 }
 
