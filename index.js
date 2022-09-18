@@ -8,6 +8,13 @@ app.use(BodyParser.urlencoded({extended:true}))
 app.set('view engine','ejs');
 
 app.get("/",(req,res) => {
+    // db.ref("Visitors").once('value',snapshot => {
+    //     if(snapshot.exists()){
+    //         db.ref("Visitors").update({count:snapshot.val().count+1})
+    //     }else{
+    //         db.ref("Visitors").update({count:0})
+    //     }
+    // })
     res.render('index');
 })
 
